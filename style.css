@@ -7,6 +7,11 @@ h1 {
   display: block;
 }
 
+.active {
+  background-color: #149902;
+  color: #fff;
+}
+
 .censoredWordContainer {
   margin: 1em 0.25em;
 }
@@ -15,4 +20,33 @@ h1 {
   padding: 0 0.1em;
   font-size: 2em;
   font-weight: bold;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+.letter {
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid #000;
+  text-transform: uppercase;
+}
+
+.row {
+  text-align: center;
+  margin: 10px;
+}
+
+.correct {
+  background-color: rgba(0, 128, 0, 0.5);
+  cursor: not-allowed;
+  color: white;
+}
+
+.incorrect {
+  background-color: rgba(128, 0, 0, 0.5);
+  cursor: not-allowed;
+  color: white;
 }
