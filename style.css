@@ -1,0 +1,18 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+h1 {
+  display: block;
+}
+
+.censoredWordContainer {
+  margin: 1em 0.25em;
+}
+
+.censoredWordContainer > span {
+  padding: 0 0.1em;
+  font-size: 2em;
+  font-weight: bold;
+}
