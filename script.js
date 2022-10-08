@@ -31,7 +31,7 @@ const wordList = [
   // const inputEl = document.querySelector('input');
 
   let answerWord = '';
-  let incompArr = [];
+  const incompArr = [];
 
   /**
    * This will pick a word at random, display the censored version onto the page,
@@ -67,25 +67,34 @@ const wordList = [
    * Check if answerWord & key have any letters in common. If so, which?
    */
   function checkValidity(target, key) {
+    /**
+     * Unreadable af but JS flex below
+     * This is the first time I've ever used the comma operator :o
+     *
+     * const indexesArr = answerChars.reduce(
+     *  (acc, curr, i) => (curr === key ? (acc.push(i), acc) : acc),
+     *  [],
+     * );
+     *
+     */
+
+    if (!answerWord.includes(key)) {
+      target.classList.add('incorrect');
+      return;
+    }
+
     // We have two strings, answerWord and key.
-    // We need to determine
-    if (answerWord.includes(key)) {
-      // You win.. TODO: Figure out what happens when you win
+    // We need to loop for each instance of key in answerWord
+    // To make this easier let's turn answerWord into an array
+    const answerChars = answerWord.split('');
+    while (answerChars.includes(key)) {
       target.classList.add('correct');
 
       // Find index of letter and replace dash in array with letter
-      let index = answerWord.indexOf(key);
+      const index = answerChars.indexOf(key);
+      answerChars.splice(index, 1);
       incompArr.splice(index, 1, key);
-
-      // Print updated word list
-      censoredWordContainer.innerHTML = '';
-      incompArr.forEach((letter) => {
-        const underscoreSpan = document.createElement('span');
-        underscoreSpan.innerText = letter;
-        censoredWordContainer.appendChild(underscoreSpan);
-      });
-    } else {
-      target.classList.add('incorrect');
+      censoredWordContainer.children[index].innerText = incompArr[index];
     }
   }
 
