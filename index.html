@@ -4,22 +4,29 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Hangman</title>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <h1>Hangman!</h1>
-    <svg>
-      <g id="fidHead"><image src="images/Head.png"></image></g>
-      <g id="fidBody"><image src="images/Body.png"></image></g>
-      <g id="fidLeftArm"><image src="images/LeftArm.png"></image></g>
-      <g id="fidRightArm"><image src="images/RightArm.png"></image></g>
-      <g id="fidLeftLeg"><image src="images/LeftLeg.png"></image></g>
-      <g id="fidRightLeg"><image src="images/RightLeg.png"></image></g>
+    <svg class="fiddlesticks" xmlns="http://www.w3.org/2000/svg">
+      <g id="fidHead"><image href="images/Head.png"></image></g>
+      <g id="fidBody"><image href="images/Body.png"></image></g>
+      <g id="fidLeftArm"><image href="images/LeftArm.png"></image></g>
+      <g id="fidRightArm"><image href="images/RightArm.png"></image></g>
+      <g id="fidLeftLeg"><image href="images/LeftLeg.png"></image></g>
+      <g id="fidRightLeg"><image href="images/RightLeg.png"></image></g>
     </svg>
     <div class="censoredWordContainer"></div>
-    <main class="container">
+    <section class="controlBox">
+      <div class="livesDisplay">
+        Lives Left: <span id="livesDisplay">0</span>
+      </div>
+      <div class="statusBox"></div>
+      <button id="restartBtn">Restart</button>
+    </section>
+    <section class="keyboardContainer">
       <div class="top-row row">
         <div class="letter" data-letter="q">q</div>
         <div class="letter" data-letter="w">w</div>
@@ -52,6 +59,6 @@
         <div class="letter" data-letter="n">n</div>
         <div class="letter" data-letter="m">m</div>
       </div>
-    </main>
+    </section>
   </body>
 </html>
