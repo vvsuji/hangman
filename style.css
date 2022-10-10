@@ -1,7 +1,7 @@
 html {
   background-color: black;
-  --correct-color: rgba(152, 181, 238, 0.65);
-  --incorrect-color: rgba(123, 42, 75, 0.65);
+  --correct-color: rgba(152, 181, 238, 0.75);
+  --incorrect-color: rgba(123, 42, 75, 0.75);
 }
 
 body {
