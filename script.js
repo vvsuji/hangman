@@ -30,6 +30,7 @@ const INITIAL_LIVES = 6;
     'bloodborne',
     'vex',
   ]);
+
   const censoredWordContainer = document.querySelector(
     '.censoredWordContainer',
   );
@@ -92,9 +93,14 @@ const INITIAL_LIVES = 6;
   }
 
   /**
+   *
+   */
+  function updateGallowsState() {}
+
+  /**
    * Function to update the remaining lives left both in memory and on the DOM.
    *
-   * This is mainly to ensure that our internal currLives and the DOM representation stay in sync
+   *
    */
   function updateLives(newVal) {
     currLives = newVal;
