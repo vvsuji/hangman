@@ -38,6 +38,13 @@ const INITIAL_LIVES = 6;
   const restartBtn = document.querySelector('#restartBtn');
   const livesDisplay = document.querySelector('#livesDisplay');
   const statusBox = document.querySelector('.statusBox');
+  const fullLife = document.getElementById('fullLife');
+  const firstLifeLost = document.getElementById('firstLifeLost');
+  const secondLifeLost = document.getElementById('secondLifeLost');
+  const thirdLifeLost = document.getElementById('thirdLifeLost');
+  const fourthLifeLost = document.getElementById('fourthLifeLost');
+  const fifthLifeLost = document.getElementById('fifthLifeLost');
+  const noLife = document.getElementById('noLife');
 
   // The chosen word for this game, only set initially in startGame & not modified.
   let answerWord = '';
@@ -63,6 +70,7 @@ const INITIAL_LIVES = 6;
   function startGame() {
     // Reset lives
     updateLives(INITIAL_LIVES);
+    updateGallowsState();
 
     // Pick a word
     answerWord = Array.from(wordList.values())[
@@ -95,7 +103,80 @@ const INITIAL_LIVES = 6;
   /**
    *
    */
-  function updateGallowsState() {}
+  function updateGallowsState() {
+    switch (currLives) {
+      case 6: {
+        fullLife.style.visibility = 'visible';
+        firstLifeLost.style.visibility = 'hidden';
+        secondLifeLost.style.visibility = 'hidden';
+        thirdLifeLost.style.visibility = 'hidden';
+        fourthLifeLost.style.visibility = 'hidden';
+        fifthLifeLost.style.visibility = 'hidden';
+        noLife.style.visibility = 'hidden';
+        break;
+      }
+      case 5: {
+        fullLife.style.visibility = 'hidden';
+        firstLifeLost.style.visibility = 'visible';
+        secondLifeLost.style.visibility = 'hidden';
+        thirdLifeLost.style.visibility = 'hidden';
+        fourthLifeLost.style.visibility = 'hidden';
+        fifthLifeLost.style.visibility = 'hidden';
+        noLife.style.visibility = 'hidden';
+        break;
+      }
+      case 4: {
+        fullLife.style.visibility = 'hidden';
+        firstLifeLost.style.visibility = 'hidden';
+        secondLifeLost.style.visibility = 'visible';
+        thirdLifeLost.style.visibility = 'hidden';
+        fourthLifeLost.style.visibility = 'hidden';
+        fifthLifeLost.style.visibility = 'hidden';
+        noLife.style.visibility = 'hidden';
+        break;
+      }
+      case 3: {
+        fullLife.style.visibility = 'hidden';
+        firstLifeLost.style.visibility = 'hidden';
+        secondLifeLost.style.visibility = 'hidden';
+        thirdLifeLost.style.visibility = 'visible';
+        fourthLifeLost.style.visibility = 'hidden';
+        fifthLifeLost.style.visibility = 'hidden';
+        noLife.style.visibility = 'hidden';
+        break;
+      }
+      case 2: {
+        fullLife.style.visibility = 'hidden';
+        firstLifeLost.style.visibility = 'hidden';
+        secondLifeLost.style.visibility = 'hidden';
+        thirdLifeLost.style.visibility = 'hidden';
+        fourthLifeLost.style.visibility = 'visible';
+        fifthLifeLost.style.visibility = 'hidden';
+        noLife.style.visibility = 'hidden';
+        break;
+      }
+      case 1: {
+        fullLife.style.visibility = 'hidden';
+        firstLifeLost.style.visibility = 'hidden';
+        secondLifeLost.style.visibility = 'hidden';
+        thirdLifeLost.style.visibility = 'hidden';
+        fourthLifeLost.style.visibility = 'hidden';
+        fifthLifeLost.style.visibility = 'visible';
+        noLife.style.visibility = 'hidden';
+        break;
+      }
+      case 0: {
+        fullLife.style.visibility = 'hidden';
+        firstLifeLost.style.visibility = 'hidden';
+        secondLifeLost.style.visibility = 'hidden';
+        thirdLifeLost.style.visibility = 'hidden';
+        fourthLifeLost.style.visibility = 'hidden';
+        fifthLifeLost.style.visibility = 'hidden';
+        noLife.style.visibility = 'visible';
+        break;
+      }
+    }
+  }
 
   /**
    * Function to update the remaining lives left both in memory and on the DOM.
@@ -165,6 +246,7 @@ const INITIAL_LIVES = 6;
       target.classList.add('incorrect');
       // Decrement lives and handle lose condition
       updateLives(currLives - 1);
+      updateGallowsState();
       if (currLives === 0) loseGame();
       return;
     }

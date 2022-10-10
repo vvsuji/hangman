@@ -53,6 +53,11 @@ h1 {
 .fiddlesticks {
   height: 350px;
   width: 350px;
+  transform: translateX(-2em);
+}
+
+.fiddlesticks > g {
+  visibility: hidden;
 }
 
 .fiddlesticks > g > image {
