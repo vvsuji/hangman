@@ -1,7 +1,7 @@
 html {
   background-color: black;
-  --correct-color: rgba(152, 181, 238, 62%);
-  --incorrect-color: rgba(123, 42, 75, 65%);
+  --correct-color: rgba(152, 181, 238, 0.65);
+  --incorrect-color: rgba(123, 42, 75, 0.65);
 }
 
 body {
@@ -13,17 +13,13 @@ body {
   text-align: center;
 }
 
-h1 {
-  display: block;
-}
-
 .active {
   background-color: #149902;
   color: #fff;
 }
 
 .censoredWordContainer {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.3);
   border-radius: 10px;
   font-size: 2em;
   font-weight: bold;
@@ -41,10 +37,10 @@ h1 {
 }
 
 .controlBox > * {
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
-  margin: 1em auto;
-  width: 250px;
+  background-color: rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto;
 }
 
 .fiddlesticks {
@@ -63,8 +59,10 @@ h1 {
 }
 
 .keyboardContainer {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
   margin: 1em auto;
+  padding: 3px 0px 3px 0px;
   width: 450px;
 }
 
@@ -88,16 +86,29 @@ h1 {
   cursor: not-allowed;
 }
 
+.livesDisplay {
+  border-radius: 10px 10px 0px 0px;
+  font-weight: bold;
+  color: #890010;
+  padding: 5px;
+  width: 250px;
+}
+
 .row {
-  text-align: center;
   margin: 10px;
+  text-align: center;
 }
 
 .statusBox {
+  border-radius: 0px 0px 10px 10px;
   height: 2em;
+  justify-content: center;
+  padding: 5px;
   width: 250px;
 }
 
 #restartBtn {
-  /* margin: 1em auto; */
+  display: flex;
+  justify-content: right;
+  margin: 1em auto;
 }

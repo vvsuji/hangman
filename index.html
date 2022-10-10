@@ -10,7 +10,13 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Hangman!</h1>
+    <section class="controlBox">
+      <div class="livesDisplay">
+        Lives Left: <span id="livesDisplay">0</span>
+      </div>
+      <div class="statusBox"></div>
+      <button id="restartBtn">Restart</button>
+    </section>
     <svg class="fiddlesticks" xmlns="http://www.w3.org/2000/svg">
       <g id="fullLife"><image href="images/startgame.png"></image></g>
       <g id="firstLifeLost"><image href="images/firstlifelost.png"></image></g>
@@ -25,13 +31,6 @@
       <g id="noLife"><image href="images/gameover.png"></image></g>
     </svg>
     <div class="censoredWordContainer"></div>
-    <section class="controlBox">
-      <div class="livesDisplay">
-        Lives Left: <span id="livesDisplay">0</span>
-      </div>
-      <div class="statusBox"></div>
-      <button id="restartBtn">Restart</button>
-    </section>
     <section class="keyboardContainer">
       <div class="top-row row">
         <div class="letter" data-letter="q">q</div>
