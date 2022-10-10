@@ -1,3 +1,5 @@
+import championNames from './champions.js';
+
 /**
  * IIFE -> Immediately Invoked Function Expression
  * - Avoids polluting the global scope
@@ -13,23 +15,7 @@ const INITIAL_LIVES = 6;
 
   // List of valid words that we choose from to determine the answerWord.
   // Using a set so we can easily remove a word from the possibility list each time its used
-  const wordList = new Set([
-    'word',
-    'hello',
-    'world',
-    'slay',
-    'gossip',
-    'girl',
-    'twiliGht',
-    'what',
-    'we',
-    'do',
-    'in',
-    'the',
-    'shadows',
-    'bloodborne',
-    'vex',
-  ]);
+  const wordList = new Set(championNames);
 
   const censoredWordContainer = document.querySelector(
     '.censoredWordContainer',
@@ -242,7 +228,10 @@ const INITIAL_LIVES = 6;
    */
   function checkValidity(target, key) {
     // If it was an incorrect guess, mark the key as such and return early.
-    if (!answerWord.includes(key)) {
+    if (
+      !answerWord.includes(key.toUpperCase()) &&
+      !answerWord.includes(key.toLowerCase())
+    ) {
       target.classList.add('incorrect');
       // Decrement lives and handle lose condition
       updateLives(currLives - 1);
@@ -265,7 +254,7 @@ const INITIAL_LIVES = 6;
     // Loop through that array and store the index where
     // the currently guessed letter matches one in the answerWord.
     answerChars.forEach((letter, i) => {
-      if (letter === key) currentGuess[i] = letter;
+      if (letter.toLowerCase() === key) currentGuess[i] = letter;
     });
 
     // Now that we've updated those indicies in currentGuess, we can write to the DOM
